@@ -1,0 +1,31 @@
+<div class="container">
+
+    <div class="badge">
+      <button routerLink="create" class="nova-task mat-elevation-z8" mat-stroked-button color="primary">Nova Task</button>
+      <button (click)="navegarParaFinalizados()" class="nova-task mat-elevation-z8" mat-stroked-button color="primary" matBadge="{{closed}}">Tasks finalizadas</button>
+    </div>
+
+    <div class="content" *ngFor="let item of list">
+        <mat-card class="mat-elevation-z8">
+            <p>Data para finalizar: {{item.dataFinalizar}}</p>
+            <mat-card-header>
+              <mat-card-title>{{item.titulo}}</mat-card-title>
+              <mat-card-subtitle>{{item.descricao}}</mat-card-subtitle>
+            </mat-card-header>
+
+            <div class="actions">
+              <button (click)="finalizar(item)" mat-mini-fab color="primary">
+                  <mat-icon>done</mat-icon>
+              </button>
+              <button routerLink="update/{{item.id}}" mat-mini-fab color="accent">
+                  <mat-icon>edit</mat-icon>
+              </button>
+              <button (click)="delete(item.id)" mat-mini-fab color="warn">
+                  <mat-icon>delete</mat-icon>
+              </button> 
+            </div>
+
+          </mat-card>
+    </div>
+
+</div>

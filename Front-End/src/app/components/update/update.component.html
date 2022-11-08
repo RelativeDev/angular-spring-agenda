@@ -1,0 +1,28 @@
+<form>
+    <h1>ATUALIZAR TASK</h1>
+
+    <mat-form-field class="data-finalizar" appearance="fill">
+        <mat-label>Data Para Finalizar</mat-label>
+        <input [(ngModel)]="task.dataFinalizar" name="task.dataFinalizar" matInput [matDatepicker]="dp3" disabled>
+        <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+        <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+      </mat-form-field>
+
+      <div class="forms">
+        <mat-form-field class="form" appearance="fill">
+            <mat-label>Titulo</mat-label>
+            <input [(ngModel)]="task.titulo" name="task.titulo" matInput placeholder="Ex. Estudar">
+          </mat-form-field>
+    
+          <mat-form-field class="form" appearance="fill">
+            <mat-label>Descrição</mat-label>
+            <input [(ngModel)]="task.descricao" name="task.descricao" matInput placeholder="Ex. Estudar nova framework">
+          </mat-form-field>
+      </div>
+
+      <div class="buttons">
+        <button (click)="update()"  mat-stroked-button color="primary">Atualizar</button>
+        <button (click)="cancel()" mat-stroked-button color="warn">Cancelar</button>
+      </div>
+</form>
+
