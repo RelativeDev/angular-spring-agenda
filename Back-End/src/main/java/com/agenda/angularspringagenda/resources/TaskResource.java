@@ -10,6 +10,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/tasks")
 public class TaskResource {
@@ -35,7 +36,7 @@ public class TaskResource {
         return ResponseEntity.ok().body(list);
     }
 
-    @GetMapping(value = "/all")
+    @GetMapping()
     public ResponseEntity<List<Task>> listAll(){
         List<Task> list = taskService.findAll();
         return ResponseEntity.ok().body(list);
